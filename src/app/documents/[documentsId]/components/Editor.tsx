@@ -9,6 +9,7 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
+import Underline from "@tiptap/extension-underline";
 import ImageResize from "tiptap-extension-resize-image";
 
 import { useEditorStore } from "@/store/use-editor-store";
@@ -61,6 +62,7 @@ export const Editor = () => {
       TableCell,
       Image,
       ImageResize,
+      Underline,
     ],
     content: `
     <table>
