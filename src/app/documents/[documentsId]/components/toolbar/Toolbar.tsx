@@ -19,6 +19,8 @@ import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
 
 import { ToolbarButton } from "./ToolbarButton";
+import { FontFamilyChanger } from "./menus/FontFamilyChanger";
+import { HeadingLevelChanger } from "./menus/HeadingLevelChanger";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -105,8 +107,9 @@ export const Toolbar = () => {
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: Font Family */}
+      <FontFamilyChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Heading */}
+      <HeadingLevelChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: Font Size */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
