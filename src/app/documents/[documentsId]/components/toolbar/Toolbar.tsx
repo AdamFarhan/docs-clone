@@ -21,6 +21,8 @@ import { Separator } from "@/components/ui/separator";
 import { ToolbarButton } from "./ToolbarButton";
 import { FontFamilyChanger } from "./menus/FontFamilyChanger";
 import { HeadingLevelChanger } from "./menus/HeadingLevelChanger";
+import { TextColorChanger } from "./menus/TextColorChanger";
+import { HighlightColorChanger } from "./menus/HighlightColorChanger";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -117,8 +119,8 @@ export const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Text Color */}
-      {/* TODO: Highlight Color */}
+      <TextColorChanger />
+      <HighlightColorChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: Link */}
       {/* TODO: Image */}
