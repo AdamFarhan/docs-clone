@@ -25,6 +25,8 @@ import { TextColorChanger } from "./menus/TextColorChanger";
 import { HighlightColorChanger } from "./menus/HighlightColorChanger";
 import { LinkBuilder } from "./menus/LinkBuilder";
 import { ImageBuilder } from "./menus/ImageBuilder";
+import { AlignChanger } from "./menus/AlignChanger";
+import { ListBuilder } from "./menus/ListBuilder";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -125,9 +127,8 @@ export const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <LinkBuilder />
       <ImageBuilder />
-      {/* TODO: Image */}
-      {/* TODO: Align */}
-      {/* TODO: Line height */}
+      <AlignChanger />
+      <ListBuilder />
       {/* TODO: List */}
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />
