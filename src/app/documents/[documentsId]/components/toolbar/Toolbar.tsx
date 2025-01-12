@@ -27,6 +27,7 @@ import { LinkBuilder } from "./menus/LinkBuilder";
 import { ImageBuilder } from "./menus/ImageBuilder";
 import { AlignChanger } from "./menus/AlignChanger";
 import { ListBuilder } from "./menus/ListBuilder";
+import { FontSizeChanger } from "./menus/FontSizeChanger";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -116,7 +117,7 @@ export const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <HeadingLevelChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Font Size */}
+      <FontSizeChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
@@ -129,7 +130,6 @@ export const Toolbar = () => {
       <ImageBuilder />
       <AlignChanger />
       <ListBuilder />
-      {/* TODO: List */}
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
