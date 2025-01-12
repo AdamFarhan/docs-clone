@@ -4,9 +4,9 @@ import { useEditorStore } from "@/store/use-editor-store";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { HighlighterIcon } from "lucide-react";
+import { ToolbarDropdownTrigger } from "../ToolbarDropdownTrigger";
 
 export const HighlightColorChanger = () => {
   const { editor } = useEditorStore();
@@ -18,11 +18,10 @@ export const HighlightColorChanger = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <HighlighterIcon className="size-4" />
-        </button>
-      </DropdownMenuTrigger>
+      <ToolbarDropdownTrigger
+        icon={HighlighterIcon}
+        tooltip="Hightlight Color"
+      />
       <DropdownMenuContent className="p-0">
         <SketchPicker color={value} onChange={onChange} />
       </DropdownMenuContent>

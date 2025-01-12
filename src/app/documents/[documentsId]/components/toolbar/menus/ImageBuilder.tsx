@@ -1,4 +1,4 @@
-import { ImageIcon, Link2Icon, SearchIcon, UploadIcon } from "lucide-react";
+import { ImageIcon, SearchIcon, UploadIcon } from "lucide-react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 
@@ -7,7 +7,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -29,6 +28,7 @@ import {
 
 import { useEditorStore } from "@/store/use-editor-store";
 import { useState } from "react";
+import { ToolbarDropdownTrigger } from "../ToolbarDropdownTrigger";
 
 const formSchema = z.object({
   url: z.string().url().min(1),
@@ -77,11 +77,7 @@ export const ImageBuilder = () => {
           }
         }}
       >
-        <DropdownMenuTrigger asChild>
-          <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
-            <ImageIcon className="size-4" />
-          </button>
-        </DropdownMenuTrigger>
+        <ToolbarDropdownTrigger icon={ImageIcon} tooltip="Add Image" />
         <DropdownMenuContent>
           <DropdownMenuItem onClick={onUpload}>
             <UploadIcon className="size-4 mr-2" />

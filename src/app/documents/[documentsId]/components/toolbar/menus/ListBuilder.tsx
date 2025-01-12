@@ -1,19 +1,12 @@
-import {
-  AlignCenterIcon,
-  AlignJustifyIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
-  ListIcon,
-  ListOrderedIcon,
-} from "lucide-react";
+import { ListIcon, ListOrderedIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ToolbarDropdownTrigger } from "../ToolbarDropdownTrigger";
 
 export const ListBuilder = () => {
   const { editor } = useEditorStore();
@@ -35,11 +28,7 @@ export const ListBuilder = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <ListIcon className="size-4" />
-        </button>
-      </DropdownMenuTrigger>
+      <ToolbarDropdownTrigger icon={ListIcon} tooltip="Add List" />
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {lists.map(({ onClick, isActive, label, icon: Icon }) => (
           <button

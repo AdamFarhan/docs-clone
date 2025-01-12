@@ -9,7 +9,7 @@ import {
   PrinterIcon,
   Redo2Icon,
   RemoveFormattingIcon,
-  SpellCheck2Icon,
+  SpellCheckIcon,
   UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
@@ -28,6 +28,7 @@ import { ImageBuilder } from "./menus/ImageBuilder";
 import { AlignChanger } from "./menus/AlignChanger";
 import { ListBuilder } from "./menus/ListBuilder";
 import { FontSizeChanger } from "./menus/FontSizeChanger";
+import { LineHeightChanger } from "./menus/LineHeightChanger";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -55,7 +56,7 @@ export const Toolbar = () => {
       },
       {
         label: "Spell Check",
-        icon: SpellCheck2Icon,
+        icon: SpellCheckIcon,
         onClick: () => {
           const current = editor?.view.dom.getAttribute("spellcheck");
           editor?.view.dom.setAttribute(
@@ -88,13 +89,13 @@ export const Toolbar = () => {
     ],
     [
       {
-        label: "Comment",
+        label: "Add Comment",
         icon: MessageSquarePlusIcon,
         isActive: false,
         onClick: () => console.log("Comment"),
       },
       {
-        label: "List Todo",
+        label: "Add List",
         icon: ListTodoIcon,
         isActive: editor?.isActive("taskList"),
         onClick: () => editor?.chain().focus().toggleTaskList().run(),
@@ -129,6 +130,7 @@ export const Toolbar = () => {
       <LinkBuilder />
       <ImageBuilder />
       <AlignChanger />
+      <LineHeightChanger />
       <ListBuilder />
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />

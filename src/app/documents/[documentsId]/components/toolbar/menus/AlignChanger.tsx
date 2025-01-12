@@ -10,8 +10,8 @@ import { useEditorStore } from "@/store/use-editor-store";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ToolbarDropdownTrigger } from "../ToolbarDropdownTrigger";
 
 export const AlignChanger = () => {
   const { editor } = useEditorStore();
@@ -41,11 +41,7 @@ export const AlignChanger = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <AlignLeftIcon className="size-4" />
-        </button>
-      </DropdownMenuTrigger>
+      <ToolbarDropdownTrigger icon={AlignLeftIcon} tooltip="Text Alignment" />
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {alignments.map(({ label, value, icon: Icon }) => (
           <button

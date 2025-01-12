@@ -55,7 +55,11 @@ export const FontSizeChanger = () => {
   };
   return (
     <div className="flex items-center gap-x-0.5">
-      <ToolbarButton icon={MinusIcon} onClick={decrement} />
+      <ToolbarButton
+        icon={MinusIcon}
+        onClick={decrement}
+        label="Decrease font size"
+      />
       {isEditing ? (
         <input
           type="text"
@@ -76,7 +80,11 @@ export const FontSizeChanger = () => {
           {currentFontSize}
         </button>
       )}
-      <ToolbarButton icon={PlusIcon} onClick={increment} />
+      <ToolbarButton
+        icon={PlusIcon}
+        onClick={increment}
+        label="Increase font size"
+      />
     </div>
   );
 };
