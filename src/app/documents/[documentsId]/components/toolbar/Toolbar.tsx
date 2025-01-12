@@ -24,6 +24,7 @@ import { HeadingLevelChanger } from "./menus/HeadingLevelChanger";
 import { TextColorChanger } from "./menus/TextColorChanger";
 import { HighlightColorChanger } from "./menus/HighlightColorChanger";
 import { LinkBuilder } from "./menus/LinkBuilder";
+import { ImageBuilder } from "./menus/ImageBuilder";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -109,7 +110,6 @@ export const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Font Family */}
       <FontFamilyChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <HeadingLevelChanger />
@@ -124,6 +124,7 @@ export const Toolbar = () => {
       <HighlightColorChanger />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <LinkBuilder />
+      <ImageBuilder />
       {/* TODO: Image */}
       {/* TODO: Align */}
       {/* TODO: Line height */}
