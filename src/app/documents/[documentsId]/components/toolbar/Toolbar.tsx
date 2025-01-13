@@ -109,24 +109,42 @@ export const Toolbar = () => {
   ];
 
   return (
-    <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
+    <div className="bg-[#F1F4F9] dark:bg-muted px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       <FontFamilyChanger />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       <HeadingLevelChanger />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       <FontSizeChanger />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       <TextColorChanger />
       <HighlightColorChanger />
-      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Separator
+        orientation="vertical"
+        className="h-6 bg-neutral-300 dark:bg-neutral-600"
+      />
       <LinkBuilder />
       <ImageBuilder />
       <AlignChanger />

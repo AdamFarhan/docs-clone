@@ -71,7 +71,7 @@ export const FontSizeChanger = () => {
         />
       ) : (
         <button
-          className="h-7 w-10 text-sm text-center rounded-sm border border-neutral-400 hover:bg-neutral-200/80"
+          className="h-7 w-10 text-sm text-center rounded-sm border border-neutral-400 dark:border-neutral-600 hover:bg-neutral-200/80"
           onClick={() => {
             setIsEditing(true);
             setFontSize(currentFontSize);

@@ -9,7 +9,7 @@ const DocumentPage = async ({ params }: Props) => {
   const { documentId } = await params;
 
   return (
-    <div className="min-h-screen bg-[#FAFBFD]">
+    <div className="min-h-screen bg-[#FAFBFD] dark:bg-black">
       <Toolbar />
       <Editor />
     </div>

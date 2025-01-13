@@ -23,9 +23,9 @@ export const TextColorChanger = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Tooltip>
-          <TooltipTrigger asChild>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <DropdownMenuTrigger asChild>
             <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
               <span className="text-sm leading-4">A</span>
               <div
@@ -33,10 +33,10 @@ export const TextColorChanger = () => {
                 style={{ backgroundColor: value }}
               />
             </button>
-          </TooltipTrigger>
-          <TooltipContent>Text Color</TooltipContent>
-        </Tooltip>
-      </DropdownMenuTrigger>
+          </DropdownMenuTrigger>
+        </TooltipTrigger>
+        <TooltipContent>Text Color</TooltipContent>
+      </Tooltip>
       <DropdownMenuContent className="p-0">
         <SketchPicker color={value} onChange={onChange} />
       </DropdownMenuContent>
