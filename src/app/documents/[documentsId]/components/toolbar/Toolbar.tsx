@@ -101,7 +101,7 @@ export const Toolbar = () => {
         onClick: () => editor?.chain().focus().toggleTaskList().run(),
       },
       {
-        label: "Remove Formatting",
+        label: "Clear Formatting",
         icon: RemoveFormattingIcon,
         onClick: () => editor?.chain().focus().unsetAllMarks().run(),
       },
