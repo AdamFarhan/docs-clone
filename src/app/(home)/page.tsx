@@ -1,12 +1,5 @@
-import { ModeToggle } from "@/components/theme-changer";
-import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Navbar } from "./components/navbar/Navbar";
+import { TemplateGallery } from "./components/template-gallery/TemplateGallery";
 
 const HomePage = () => {
   return (
@@ -15,17 +8,7 @@ const HomePage = () => {
         <Navbar />
       </div>
       <div className="mt-16">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="outline">Hover</Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Add to library</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <ModeToggle />
+        <TemplateGallery />
       </div>
     </div>
   );
