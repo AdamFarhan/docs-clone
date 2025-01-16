@@ -14,7 +14,16 @@ export const Navbar = () => {
         <h3 className="text-xl">Docs</h3>
       </div>
       <SearchInput />
-      <UserButton />
+      <UserButton
+        appearance={{
+          elements: {
+            userButtonAvatarBox: {
+              height: "48px",
+              width: "48px",
+            },
+          },
+        }}
+      />
     </nav>
   );
 };
