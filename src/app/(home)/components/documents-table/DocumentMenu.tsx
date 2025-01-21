@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { RemoveDialog } from "@/components/remove-dialog";
 import { RenameDialog } from "@/components/rename-dialog";
@@ -32,16 +33,10 @@ export const DocumentMenu = ({ documentId, onNewTab, title }: Props) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <RemoveDialog documentId={documentId}>
-          <DropdownMenuItem
-            onSelect={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <TrashIcon className="size-4 mr-2" />
-            Delete
-          </DropdownMenuItem>
-        </RemoveDialog>
+        <DropdownMenuItem onClick={() => onNewTab(documentId)}>
+          <ExternalLinkIcon className="size-4 mr-2" />
+          Open in a new tab
+        </DropdownMenuItem>
         <RenameDialog documentId={documentId} initialTitle={title}>
           <DropdownMenuItem
             onSelect={(e) => {
@@ -52,10 +47,18 @@ export const DocumentMenu = ({ documentId, onNewTab, title }: Props) => {
             Rename
           </DropdownMenuItem>
         </RenameDialog>
-        <DropdownMenuItem onClick={() => onNewTab(documentId)}>
-          <ExternalLinkIcon className="size-4 mr-2" />
-          Open in a new tab
-        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+        <RemoveDialog documentId={documentId}>
+          <DropdownMenuItem
+            onSelect={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <TrashIcon className="size-4 mr-2" />
+            Delete
+          </DropdownMenuItem>
+        </RemoveDialog>
       </DropdownMenuContent>
     </DropdownMenu>
   );
