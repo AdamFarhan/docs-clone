@@ -12,6 +12,7 @@ import {
 
 import { DocumentRow } from "./DocumentRow";
 import { Doc } from "../../../../../convex/_generated/dataModel";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   documents: Doc<"documents">[] | undefined;
@@ -55,6 +56,16 @@ export const DocumentsTable = ({ documents, loadMore, status }: Props) => {
           )}
         </Table>
       )}
+      <div className="flex items-center justify-center">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => loadMore(5)}
+          disabled={status !== "CanLoadMore"}
+        >
+          {status === "CanLoadMore" ? "Load more" : "End of results"}
+        </Button>
+      </div>
     </div>
   );
 };
