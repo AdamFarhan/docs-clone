@@ -17,18 +17,22 @@ export const DocumentRow = ({ document }: Props) => {
     window.open(`/documents/${id}`, "_blank");
   };
 
-  const onRowClick = (e: React.MouseEvent<HTMLTableRowElement>) => {
-    e.stopPropagation();
+  const onRowClick = (e: React.MouseEvent<HTMLTableCellElement>) => {
     router.push(`/documents/${document._id}`);
   };
 
   return (
-    <TableRow className="cursor-pointer" onClick={onRowClick}>
-      <TableCell className="w-[50px]">
+    <TableRow className="cursor-pointer">
+      <TableCell className="w-[50px]" onClick={onRowClick}>
         <SiGoogledocs className="size-6 fill-blue-500" />
       </TableCell>
-      <TableCell className="font-medium md:w-[45%]">{document.title}</TableCell>
-      <TableCell className="text-muted-foreground hidden md:flex items-center gap-2">
+      <TableCell className="font-medium md:w-[45%]" onClick={onRowClick}>
+        {document.title}
+      </TableCell>
+      <TableCell
+        className="text-muted-foreground hidden md:flex items-center gap-2"
+        onClick={onRowClick}
+      >
         {document.organizationId ? (
           <Building2Icon className="size-4" />
         ) : (
@@ -36,7 +40,10 @@ export const DocumentRow = ({ document }: Props) => {
         )}
         {document.organizationId ? "Organization" : "Personal"}
       </TableCell>
-      <TableCell className="text-muted-foreground hidden md:table-cell">
+      <TableCell
+        className="text-muted-foreground hidden md:table-cell"
+        onClick={onRowClick}
+      >
         {format(new Date(document._creationTime), "MMM dd, yyyy")}
       </TableCell>
       <TableCell className="flex justify-end">

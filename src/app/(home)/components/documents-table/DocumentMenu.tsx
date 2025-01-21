@@ -36,7 +36,6 @@ export const DocumentMenu = ({ documentId, onNewTab, title }: Props) => {
           <DropdownMenuItem
             onSelect={(e) => {
               e.preventDefault();
-              e.stopPropagation();
             }}
           >
             <TrashIcon className="size-4 mr-2" />
@@ -47,7 +46,6 @@ export const DocumentMenu = ({ documentId, onNewTab, title }: Props) => {
           <DropdownMenuItem
             onSelect={(e) => {
               e.preventDefault();
-              e.stopPropagation();
             }}
           >
             <FilePenIcon className="size-4 mr-2" />
