@@ -15,7 +15,6 @@ export const get = query({
       throw new ConvexError("Unauthorized");
     }
 
-    console.log({ user });
     const organizationId = (user.organization_id ?? undefined) as
       | string
       | undefined;

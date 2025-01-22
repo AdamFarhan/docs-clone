@@ -1,6 +1,7 @@
 import { Editor } from "./components/Editor";
 import { Toolbar } from "./components/toolbar/Toolbar";
 import { Navbar } from "./Navbar";
+import { Room } from "./Room";
 
 interface Props {
   params: Promise<{ documentId: string }>;
@@ -16,7 +17,9 @@ const DocumentPage = async ({ params }: Props) => {
         <Toolbar />
       </div>
       <div className="pt-[114px] print:pt-0">
-        <Editor />
+        <Room>
+          <Editor />
+        </Room>
       </div>
     </div>
   );
