@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+
 import { DocumentInput } from "./DocumentInput";
 import { DocumentMenu } from "./DocumentMenu";
 
@@ -14,6 +17,24 @@ export const Navbar = () => {
           <DocumentInput />
           <DocumentMenu />
         </div>
+      </div>
+      <div className="flex gap-3 items-center pl-6">
+        <OrganizationSwitcher
+          afterCreateOrganizationUrl="/"
+          afterLeaveOrganizationUrl="/"
+          afterSelectOrganizationUrl="/"
+          afterSelectPersonalUrl="/"
+        />
+        <UserButton
+          appearance={{
+            elements: {
+              userButtonAvatarBox: {
+                height: "48px",
+                width: "48px",
+              },
+            },
+          }}
+        />
       </div>
     </nav>
   );

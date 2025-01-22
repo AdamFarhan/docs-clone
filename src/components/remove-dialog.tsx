@@ -1,4 +1,7 @@
 "use client";
+import { toast } from "sonner";
+import { useState } from "react";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,7 +16,6 @@ import {
 import { Id } from "../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { useState } from "react";
 
 interface Props {
   documentId: Id<"documents">;
@@ -46,9 +48,16 @@ export const RemoveDialog = ({ children, documentId }: Props) => {
               setIsDeleting(true);
               remove({
                 id: documentId,
-              }).finally(() => {
-                setIsDeleting(false);
-              });
+              })
+                .catch(() => {
+                  toast.error("Something went wrong");
+                })
+                .then(() => {
+                  toast.success("Document deleted");
+                })
+                .finally(() => {
+                  setIsDeleting(false);
+                });
             }}
           >
             Delete

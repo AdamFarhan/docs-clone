@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, OrganizationSwitcher } from "@clerk/nextjs";
 
 import { SearchInput } from "./SearchInput";
 export const Navbar = () => {
@@ -14,16 +14,24 @@ export const Navbar = () => {
         <h3 className="text-xl">Docs</h3>
       </div>
       <SearchInput />
-      <UserButton
-        appearance={{
-          elements: {
-            userButtonAvatarBox: {
-              height: "48px",
-              width: "48px",
+      <div className="flex gap-3 items-center pl-6">
+        <OrganizationSwitcher
+          afterCreateOrganizationUrl="/"
+          afterLeaveOrganizationUrl="/"
+          afterSelectOrganizationUrl="/"
+          afterSelectPersonalUrl="/"
+        />
+        <UserButton
+          appearance={{
+            elements: {
+              userButtonAvatarBox: {
+                height: "48px",
+                width: "48px",
+              },
             },
-          },
-        }}
-      />
+          }}
+        />
+      </div>
     </nav>
   );
 };
