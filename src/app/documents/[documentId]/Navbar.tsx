@@ -6,6 +6,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { DocumentInput } from "./DocumentInput";
 import { DocumentMenu } from "./DocumentMenu";
 import { Avatars } from "./components/Avatars";
+import { Inbox } from "./components/Inbox";
 export const Navbar = () => {
   return (
     <nav className="flex items-center justify-between">
@@ -20,6 +21,7 @@ export const Navbar = () => {
       </div>
       <div className="flex gap-3 items-center pl-6">
         <Avatars />
+        <Inbox />
         <OrganizationSwitcher
           afterCreateOrganizationUrl="/"
           afterLeaveOrganizationUrl="/"
