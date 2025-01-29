@@ -17,7 +17,7 @@ export const DocumentRow = ({ document }: Props) => {
     window.open(`/documents/${id}`, "_blank");
   };
 
-  const onRowClick = (e: React.MouseEvent<HTMLTableCellElement>) => {
+  const onRowClick = () => {
     router.push(`/documents/${document._id}`);
   };
 
