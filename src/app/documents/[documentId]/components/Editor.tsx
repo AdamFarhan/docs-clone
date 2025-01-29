@@ -26,9 +26,19 @@ import { useEditorStore } from "@/store/use-editor-store";
 
 import { Ruler } from "./Ruler";
 import { Threads } from "../Threads";
+import {
+  LEFT_MARGIN_DEFAULT,
+  RIGHT_MARGIN_DEFAULT,
+} from "@/constants/margints";
 
-export const Editor = () => {
-  const liveblocks = useLiveblocksExtension();
+interface Props {
+  initialContent?: string | undefined;
+}
+export const Editor = ({ initialContent }: Props) => {
+  const liveblocks = useLiveblocksExtension({
+    initialContent: initialContent,
+    offlineSupport_experimental: true,
+  });
 
   const leftMargin = useStorage((root) => root.leftMargin);
   const rightMargin = useStorage((root) => root.rightMargin);
@@ -62,7 +72,7 @@ export const Editor = () => {
     },
     editorProps: {
       attributes: {
-        style: `padding-left: ${leftMargin ?? 56}px; padding-right: ${rightMargin ?? 56}px;`,
+        style: `padding-left: ${leftMargin ?? LEFT_MARGIN_DEFAULT}px; padding-right: ${rightMargin ?? RIGHT_MARGIN_DEFAULT}px;`,
         class:
           "focus:outline-none print:border-0 bg-white dark:bg-background border border-[#C7C7C7] dark:border-border shadow-md flex flex-col min-h-[1054px] w-[816px] pt-10 pr-14 pb-10 cursor-text",
       },
