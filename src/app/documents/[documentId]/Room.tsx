@@ -41,8 +41,6 @@ export function Room({ children }: { children: ReactNode }) {
     fetchUsers();
   }, [fetchUsers]);
 
-  console.log({ users });
-
   return (
     <LiveblocksProvider
       throttle={16}

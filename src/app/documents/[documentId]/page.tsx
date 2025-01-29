@@ -1,28 +1,36 @@
-import { Editor } from "./components/Editor";
-import { Toolbar } from "./components/toolbar/Toolbar";
-import { Navbar } from "./Navbar";
-import { Room } from "./Room";
+import { auth } from "@clerk/nextjs/server";
+import { preloadQuery } from "convex/nextjs";
+import { Document } from "./Document";
+import { api } from "../../../../convex/_generated/api";
+import { Id } from "../../../../convex/_generated/dataModel";
 
 interface Props {
-  params: Promise<{ documentId: string }>;
+  params: Promise<{ documentId: Id<"documents"> }>;
 }
 
 const DocumentPage = async ({ params }: Props) => {
   const { documentId } = await params;
+  const { getToken } = await auth();
+  const token =
+    (await getToken({
+      template: "convex",
+    })) ?? undefined;
 
-  return (
-    <Room>
-      <div className="min-h-screen bg-[#FAFBFD] dark:bg-black">
-        <div className="flex flex-col px-4 pt-2 gap-y-2 fixed top-0 left-0 right-0 z-10 bg-[#FAFBFD] dark:bg-black print:hidden">
-          <Navbar />
-          <Toolbar />
-        </div>
-        <div className="pt-[114px] print:pt-0">
-          <Editor />
-        </div>
-      </div>
-    </Room>
+  if (!token) {
+    throw new Error("Unauthorized");
+  }
+
+  const initialDocument = await preloadQuery(
+    api.documents.getById,
+    { id: documentId },
+    { token }
   );
+
+  if (!initialDocument) {
+    throw new Error("Document not found)");
+  }
+
+  return <Document initialDocument={initialDocument} />;
 };
 
 export default DocumentPage;

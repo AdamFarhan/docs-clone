@@ -20,9 +20,10 @@ import { api } from "../../convex/_generated/api";
 interface Props {
   documentId: Id<"documents">;
   children: React.ReactNode;
+  onSuccess?: () => void;
 }
 
-export const RemoveDialog = ({ children, documentId }: Props) => {
+export const RemoveDialog = ({ children, documentId, onSuccess }: Props) => {
   const remove = useMutation(api.documents.removeById);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -54,9 +55,11 @@ export const RemoveDialog = ({ children, documentId }: Props) => {
                 })
                 .then(() => {
                   toast.success("Document deleted");
+                  onSuccess?.();
                 })
                 .finally(() => {
                   setIsDeleting(false);
+                  onSuccess?.();
                 });
             }}
           >
