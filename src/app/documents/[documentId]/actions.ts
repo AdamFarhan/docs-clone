@@ -16,15 +16,27 @@ export async function getUsers() {
     organizationId: [sessionClaims?.org_id as string],
   });
 
-  const users = response.data.map((user) => ({
-    id: user.id,
-    name:
+  const users = response.data.map((user) => {
+    const name =
       user.fullName ??
       user.primaryEmailAddress?.emailAddress ??
       user.username ??
-      "Anonymous",
-    avatar: user.imageUrl,
-  }));
+      "Anonymous";
+
+    // chat-gpt code that converts a name to an HSL value
+    const nameToNumber = name
+      .split("")
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const hue = Math.abs(nameToNumber) % 360;
+    const color = `hsl(${hue}, 80%, 60%)`;
+
+    return {
+      id: user.id,
+      name,
+      avatar: user.imageUrl,
+      color: color,
+    };
+  });
 
   return users;
 }
